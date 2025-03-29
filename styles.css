@@ -1,0 +1,41 @@
+.block_learningpath.block .content h3 {
+    padding: 0;
+    text-transform: none;
+}
+
+.block_learningpath .sub-content {
+    padding: 0 15px;
+}
+
+.block_learningpath ul {
+    list-style: none;
+    margin: 0;
+}
+
+.block_learningpath ul .more {
+    padding-top: 10px;
+}
+
+#block_learningpath_content div.scroll-lp {
+    max-height: 170px;
+    position: relative;
+    z-index: 1;
+}
+
+#block_learningpath_content div.headinglearningpath {
+    padding: 8px 2px !important;
+}
+#block_learningpath_content div.headinglearningpath {
+    margin-bottom: 18px;
+    padding: 0 15px;
+}
+aside.block_learningpath div.headinglearningpath {
+    padding: .75rem !important;
+    border: 1px solid #d5d5d5 !important;
+    margin-bottom: 0px !important;
+    background-color: var(--secondary) !important;
+    opacity: 1;
+    color: var(--primary) !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+}

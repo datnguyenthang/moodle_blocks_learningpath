@@ -1,0 +1,86 @@
+<div id="learningline">
+    <table id="learningline-table" class="generaltable table table-striped">
+        <thead>
+            <tr>
+                <th>{{#str}}line, block_learningpath {{/str}}</th>
+                <th>{{#str}}startdate, block_learningpath {{/str}}</th>
+                <th>{{#str}}enddate, block_learningpath {{/str}}</th>
+                <th>{{#str}}progress, block_learningpath {{/str}}</th>
+                <th>{{#str}}required, block_learningpath {{/str}}</th>
+                <th>{{#str}}credit, block_learningpath {{/str}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#learninglinesData}}
+                <tr>
+                    <td>
+                        {{#is_course}} <i class="fas fa-book text-primary me-1" title="Course"></i> {{/is_course}}
+                        {{#is_module}} <i class="fas fa-cubes text-success me-1" title="Module"></i> {{/is_module}}
+                        {{#is_catalogue}} <i class="fas fa-folder text-warning me-1" title="Catalogue"></i> {{/is_catalogue}}
+                        
+                        {{#is_catalogue}}
+                            <a href="#" class="catalogue-link" data-toggle="modal" data-target="#catalogueModal" data-id="{{catalogue_id}}">{{name}}</a>
+                        {{/is_catalogue}}
+
+                        {{^is_catalogue}}
+                            <a href="{{url}}" target="_blank">{{name}}</a>
+                        {{/is_catalogue}}
+                    </td>
+                    <td>{{startdate}}</td>
+                    <td>{{enddate}}</td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <span class="me-2">{{progress}}%</span>
+                            <div class="progress flex-grow-1" style="height: 10px;">
+                                <div class="progress-bar {{progress_class}}" role="progressbar" 
+                                    aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" 
+                                    style="width: {{progress}}%;"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input" {{#is_required}}checked{{/is_required}} disabled>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="badge align-items-center p-2 text-dark-emphasis bg-light-subtle border border-dark-subtle rounded-pill">
+                            <i class="fas fa-clipboard"></i> {{credit}}
+                        </span>
+                    </td>
+                </tr>
+            {{/learninglinesData}}
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal for Catalogue -->
+<div class="modal fade" id="catalogueModal" tabindex="-1" aria-labelledby="catalogueModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="catalogueModalLabel">{{#str}} courses {{/str}}</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>{{#str}} fullname, block_learningpath {{/str}}</th>
+                            <th>{{#str}} shortname, block_learningpath {{/str}}</th>
+                            <th>{{#str}} startdate, block_learningpath {{/str}}</th>
+                            <th>{{#str}} enddate, block_learningpath {{/str}}</th>
+                            <th>{{#str}} action {{/str}}</th>
+                        </tr>
+                    </thead>
+                    <tbody id="catalogueCoursesList">
+                        <!-- Courses will be loaded here -->
+                    </tbody>
+                </table>
+                <div id="loading-icon" style="display:none; text-align:center;">
+                    <i class="fas fa-spinner fa-spin"></i> {{#str}} loading {{/str}}...
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

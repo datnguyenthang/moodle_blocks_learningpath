@@ -1,0 +1,42 @@
+<table id="main-table" class="generaltable">
+    <thead>
+        <tr>
+            <th>{{#str}} name, block_learningpath {{/str}}</th>
+            <th>{{#str}} startdate, block_learningpath {{/str}}</th>
+            <th>{{#str}} enddate, block_learningpath {{/str}}</th>
+            <th>{{#str}} progress, block_learningpath {{/str}}</th>
+            <th>{{#str}} credit, block_learningpath {{/str}}</th>
+            <th>{{#str}} action {{/str}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#learningpathsData}}
+        <tr class="load-line-detail" data-id="{{id}}">
+            <td>{{name}}</td>
+            <td>{{startdate}}</td>
+            <td>{{enddate}}</td>
+            <td>
+                <div class="d-flex align-items-center">
+                    <span class="me-2">{{progress}}%</span>
+                    <div class="progress flex-grow-1" style="height: 10px;">
+                        <div class="progress-bar {{progress_class}}" role="progressbar" 
+                            aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" 
+                            style="width: {{progress}}%;">
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <span class="badge align-items-center p-2 text-dark-emphasis bg-light-subtle border border-dark-subtle rounded-pill">
+                    <i class="fas fa-clipboard"></i> {{credit}}
+                </span>
+            </td>
+            <td>
+                <button class="btn btn-phoenix-primary p-2 badge bg-light load-line-detail" type="button" title="Detail" data-id="{{id}}">
+                    <i class="fas fa-angle-down"></i>
+                </button>
+            </td>
+        </tr>
+        {{/learningpathsData}}
+    </tbody>
+</table>

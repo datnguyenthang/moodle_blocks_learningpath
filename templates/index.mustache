@@ -1,0 +1,19 @@
+<div class="block-section">
+    <h3 class="section-heading">{{#str}}title, block_learningpath {{/str}}</h3>
+    <input type="hidden" id="user_id" name="user_id" value="{{user_id}}" />
+</div>
+
+<!-- Main Learning Path Table -->
+<div id="learningpath_table"></div>
+
+<!-- Loading Icon -->
+<div id="loading-icon" class="text-center my-3" style="display: show;">
+    <div class="spinner-border text-success" role="status"></div>
+    <span class="visually-hidden">{{#str}}loading {{/str}}...</span>
+</div>
+
+<!-- Learning Lines Table (Hidden Initially) -->
+<div id="learninglines_container" style="display: none;">
+    <button id="back-button" class="btn btn-secondary mb-3">← {{#str}} back {{/str}}</button>
+    <div id="learninglines_table"></div>
+</div>
